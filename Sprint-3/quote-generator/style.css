@@ -1,1 +1,59 @@
-/** Write your CSS in here **/
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #f59e0b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Georgia, serif;
+}
+
+.container {
+  background-color: #e5e5e5;
+  padding: 50px;
+  width: 70%;
+  max-width: 800px;
+  border-radius: 6px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+#quote {
+  font-size: 1.6rem;
+  color: #f59e0b;
+  line-height: 1.6;
+}
+
+#quote::before {
+  content: "❝";
+  font-size: 3rem;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+#author {
+  text-align: right;
+  margin-top: 20px;
+  color: #f59e0b;
+  font-size: 1.2rem;
+}
+
+button {
+  display: block;
+  margin-left: auto;
+  margin-top: 25px;
+  background-color: #f59e0b;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #d97706;
+}
