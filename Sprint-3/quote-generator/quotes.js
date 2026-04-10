@@ -6,12 +6,11 @@ function showQuote() {
   const index = Math.floor(Math.random() * quotes.length);
   const randomQuote = quotes[index];
 
-  quoteElement.innerText = randomQuote.quote;
-  authorElement.innerText = randomQuote.author;
+  quoteElement.textContent = randomQuote.quote;
+  authorElement.textContent = randomQuote.author;
 }
 
 button.addEventListener("click", showQuote);
-document.addEventListener("DOMContentLoaded", showQuote);
 
 // DO NOT EDIT BELOW HERE
 
@@ -506,3 +505,4 @@ const quotes = [
 ];
 
 // call pickFromArray with the quotes array to check you get a random quote
+showQuote();
