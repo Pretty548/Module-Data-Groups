@@ -11,8 +11,7 @@ function showQuote() {
 }
 
 button.addEventListener("click", showQuote);
-
-window.onload = showQuote;
+document.addEventListener("DOMContentLoaded", showQuote);
 
 // DO NOT EDIT BELOW HERE
 

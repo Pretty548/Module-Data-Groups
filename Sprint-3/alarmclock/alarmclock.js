@@ -1,29 +1,35 @@
+let timeLeft = 0;
+let timer = null;
+
+function formatTime(seconds) {
+  let mins = String(Math.floor(seconds / 60)).padStart(2, "0");
+  let secs = String(seconds % 60).padStart(2, "0");
+  return `${mins}:${secs}`;
+}
+
 function setAlarm() {
   const input = document.getElementById("alarmSet").value;
-  const heading = document.getElementById("timeRemaining");
+  const display = document.getElementById("timeRemaining");
 
-  let totalSeconds = Number(input);
+  timeLeft = parseInt(input, 10);
 
-  function updateDisplay(seconds) {
-    const min = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-
-    const formattedMin = String(min).padStart(2, "0");
-    const formattedSecs = String(secs).padStart(2, "0");
-
-    heading.innerText = `Time Remaining: ${formattedMin}:${formattedSecs}`;
+  if (isNaN(timeLeft) || timeLeft <= 0) {
+    alert("Please enter a valid number of seconds.");
+    return;
   }
-  updateDisplay(totalSeconds);
 
-  const timer = setInterval(() => {
-    totalSeconds--;
+  display.textContent = `Time Remaining: ${formatTime(timeLeft)}`;
 
-    if (totalSeconds <= 0) {
-      updateDisplay(0);
+  if (timer) {
+    clearInterval(timer);
+  }
+  timer = setInterval(() => {
+    if (timeLeft > 0) {
+      timeLeft--;
+      display.textContent = `Time Remaining: ${formatTime(timeLeft)}`;
+    } else {
       clearInterval(timer);
       playAlarm();
-    } else {
-      updateDisplay(totalSeconds);
     }
   }, 1000);
 }
